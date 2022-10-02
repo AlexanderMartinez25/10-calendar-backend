@@ -26,7 +26,7 @@ const EventoSchema = Schema({
 
 // modificar lo que devuelve el Schema (_id) por id y ("val")
 EventoSchema.method("toJSON", function () {
-  const { __V, _id, ...object } = this.Object();
+  const { __v, _id, ...object } = this.toObject();
 
   object.id = _id;
   return object;
