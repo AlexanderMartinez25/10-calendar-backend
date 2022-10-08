@@ -21,7 +21,12 @@ app.use(express.json());
 // Rutas
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/events", require("./routes/events"));
-// TODO: CRUD: Eventos
+
+//path para despliegue en heroku no de errores en las rutas
+//basicamente es redireccionar al index cuand no encuentre ninguna ruta
+app.get("*", (req, res) => {
+  res.sendFile(__dirname + "/public/index.html");
+});
 
 // Escuchar peticiones
 app.listen(process.env.PORT, () => {
