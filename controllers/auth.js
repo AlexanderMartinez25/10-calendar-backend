@@ -40,11 +40,6 @@ const crearUsuario = async (req, res = response) => {
       msg: "Por favor hable con el admin del servidor",
     });
   }
-
-  res.status(201).json({
-    ok: true,
-    msg: "registro",
-  });
 };
 
 const loginUsuario = async (req, res) => {
@@ -96,6 +91,8 @@ const revalidarToken = async (req, res) => {
 
   res.json({
     ok: true,
+    uid,
+    name,
     token,
   });
 };
